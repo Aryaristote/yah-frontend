@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.95dcba2c.css",
+    "main.js": "/static/js/main.ced59350.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/AvenirTh.ttf": "/static/media/AvenirTh.66e8f822daf02e766079.ttf",
+    "static/media/loginback.svg": "/static/media/loginback.298a7329fdea37160eeb.svg",
+    "static/media/yah-invest-logo.jpeg": "/static/media/yah-invest-logo.d5b759fa18fad4113406.jpeg",
+    "static/media/AvenirBold.otf": "/static/media/AvenirBold.711a4eb654bf1139f123.otf",
+    "static/media/AvenirReg.otf": "/static/media/AvenirReg.94f2f163d4b698242fef.otf",
+    "static/media/yah-user-img.png": "/static/media/yah-user-img.b832cfe044d8a62d3205.png",
+    "static/media/loading.gif": "/static/media/loading.56ec7b0f514fa47b67e4.gif",
+    "static/media/user.png": "/static/media/user.5faf09a7795d28bf5a2b.png",
+    "static/media/Wave-100s-3000px.svg": "/static/media/Wave-100s-3000px.48534859acf03947b65a.svg",
+    "index.html": "/index.html",
+    "main.95dcba2c.css.map": "/static/css/main.95dcba2c.css.map",
+    "main.ced59350.js.map": "/static/js/main.ced59350.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95dcba2c.css",
+    "static/js/main.ced59350.js"
+  ]
+}
