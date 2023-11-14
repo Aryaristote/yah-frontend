@@ -18,7 +18,7 @@ const Login = () => {
       for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim();
         if (cookie.startsWith(User + '=')) {
-          return true; 
+          return true;  
         }
       }
       return false;
