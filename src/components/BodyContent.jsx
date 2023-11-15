@@ -5,8 +5,8 @@ import TableDashboad from './TableDashboad';
 import { fetchData } from '../axios/apiService';
 import { React, useState, useEffect } from 'react';
 import { CustomDialog, useDialog } from 'react-st-modal';
-import { FiArrowDown, FiArrowRight, FiArrowLeft } from "react-icons/fi";
-import { AiOutlineDown, AiFillFlag, AiOutlineArrowRight, AiOutlineArrowLeft, AiOutlineCloseCircle  } from 'react-icons/ai';
+import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
+import { AiOutlineCloseCircle  } from 'react-icons/ai';
 
 //Modal to add new Admin
 function CustomDialogContent() {
@@ -14,10 +14,10 @@ function CustomDialogContent() {
 
     const [value, setValue] = useState();
     const [name, setName] = useState('');
-    const [dupEmail, setDupEmail] = useState('');
-    const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState({}); 
+    const [lastname, setLastname] = useState('');
+    const [dupEmail, setDupEmail] = useState('');
     const [duplEmail, setDuplEmail] = useState(null)
     const [optionValue, setOptionValue] = useState('');
     const [selectedOption, setSelectedOption] = useState(null);

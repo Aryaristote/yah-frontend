@@ -1,7 +1,8 @@
 import { SlGraph } from 'react-icons/sl';
 import { CiWallet } from 'react-icons/ci';
 import React, { useEffect, useState } from 'react';
-import { AiOutlineContacts } from "react-icons/ai";
+import { AiOutlineContacts } from "react-icons/ai";  
+import { PiMoneyThin } from "react-icons/pi";  
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -47,6 +48,14 @@ const Sidebar = (props) => {
                                         <CiWallet />
                                     </span>
                                     <span className={pathname === '/portofolio' ? 'actv' : 'menu-title'}>Portofolios</span>
+                                </a>
+                            </li>
+                            <li className="menu-item">
+                                <a href="/projects" className={pathname === '/projects' ? 'active' : ''} >
+                                    <span className="menu-icon">
+                                        <PiMoneyThin className="sidebar-icn" />
+                                    </span>
+                                    <span className={pathname === '/projects' ? 'actv' : 'menu-title'}>Projects</span>
                                 </a>
                             </li>
                             <li className="menu-item">

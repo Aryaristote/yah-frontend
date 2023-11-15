@@ -1488,6 +1488,27 @@ a {
   text-transform: lowercase;
   font-weight: bold;
 }
+.details-content ._section .secHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.details-content ._section .secHeader .action-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+}
+.details-content ._section .secHeader .action-btn button {
+  border: none;
+  outline: 0;
+  background-color: transparent;
+}
+
+
 @media (min-width: 250px) and (max-width: 768px) {
   body {
     width: 100%;
@@ -1645,7 +1666,7 @@ form {
   width: 30%;
   border-radius: 6px;
   background: #67ce64;
-  padding: 10px 20px;
+  font-size: 16px;
   outline: none;
   border: none;
   color: white;
@@ -1684,7 +1705,7 @@ form .form-group {
 form .form-group .p-method:hover {
   cursor: pointer;
 }
-form .form-group input {
+form .form-group input, textarea {
   border: none;
   outline: none;
   padding: 10px 10px;
