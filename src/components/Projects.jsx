@@ -9,7 +9,7 @@ function CustomDialogContent() {
     const dialog = useDialog();  
 
     const [value, setValue] = useState();
-    const [errors, setErrors] = useState({});
+    const [inputErrors, setInputErrors] = useState({});
     const [formData, setFormData] = useState({
         name: '',
         max: '',
@@ -18,7 +18,7 @@ function CustomDialogContent() {
         targetAmount: '',
         deadline: '',
         images: [],
-      });
+    });
     
     // Function to handle the option selection
     const handleInputChange = (e) => {
@@ -35,15 +35,19 @@ function CustomDialogContent() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Check if all required fields are not empty
-        const requiredFields = ['name', 'description', 'location', 'targetAmount', 'deadline'];
+       // Check if all required fields are not empty
+        const requiredFields = ['name', 'description', 'max', 'location', 'targetAmount', 'deadline'];
+        const errors = {};
 
         for (const field of requiredFields) {
             if (!formData[field]) {
-                setErrors(`Please fill in the ${field} field.`);
-                console.log(errors)
-                return;
+                errors[field] = `Please fill in the ${field} field.`;
             }
+        }
+
+        if (Object.keys(errors).length > 0) {
+            setInputErrors(errors);
+            return;
         }
     
         try {
@@ -70,6 +74,7 @@ function CustomDialogContent() {
             const response = await axios.post('http://localhost:5000/create-project', projectData, config);
             if (response.status === 201) {
                 dialog.close(value);
+                window.location.reload();
             }
         } catch (error) {
             console.error('Error submitting project:', error);
@@ -92,7 +97,7 @@ function CustomDialogContent() {
                             placeholder="Project Name"
                             // required
                         />
-                        {errors&& <div className="error">{errors}</div>}
+                        {inputErrors.name && <div className="error">{inputErrors.name}</div>}
                     </div> 
                 </div>
                 <div className="form-group phone">
@@ -107,18 +112,18 @@ function CustomDialogContent() {
                             min="1"
                             placeholder="Max investor number"
                             // required
-                        /> 
-                        {errors && <div className="error">{errors}</div>}
+                        />
+                        {inputErrors.max && <div className="error">{inputErrors.max}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="name">Project Location</label>
                         <input type="text" name="location" value={formData.location} onChange={handleInputChange}
                             className="input"
-                            id="lastname"
+                            id="location"
                             placeholder="Project Location"
                             // required
-                        /> 
-                        {errors && <div className="error">{errors}</div>}
+                        />
+                        {inputErrors.location && <div className="error">{inputErrors.location}</div>}
                     </div>
                 </div>
                 <div className="form-group phone">
@@ -130,32 +135,32 @@ function CustomDialogContent() {
                             value={formData.targetAmount}
                             onChange={handleInputChange}
                             className="input"
-                            id="lastname" 
                             placeholder="Target Amount"
                             // required
-                        /> 
-                        {errors && <div className="error">{errors}</div>}
+                        />
+                        {inputErrors.targetAmount && <div className="error">{inputErrors.targetAmount}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="descrpt">Deadline:</label>
                         <input type="date" name="deadline" value={formData.deadline} onChange={handleInputChange} />
-                        {errors && <div className="error">{errors}</div>}
+                        {inputErrors.deadline && <div className="error">{inputErrors.deadline}</div>}
                     </div>
                 </div>
                 <div className="form-group phone">
                     <div className="form-group">
                         <label htmlFor="name">Description</label>
                         <textarea className="input" cols="120" id="Name" placeholder="Project description" value={formData.description} onChange={handleInputChange} name="description" ></textarea>
-                        {errors && <div className="error">{errors}</div>}
+                        {inputErrors.description && <div className="error">{inputErrors.description}</div>}
                     </div> 
                 </div>
                 <div className="form-group phone">
                     <div className="form-group">
                         <label htmlFor="name">Upload Images <small>(up to 5)</small></label>
                         <input type="file" name="images" accept="image/*" multiple onChange={handleImageChange} />
-                        {errors && <div className="error">{errors}</div>}
+                        {inputErrors.images && <div className="error">{inputErrors.images}</div>}
                     </div> 
                 </div>
+                {/* {errors && <div className="error">{errors}</div>} */}
                 <div className="form-group button-grp">
                     <div className="cancel-btn" onClick={() => {dialog.close(value)}}>
                         Cancel <AiOutlineCloseCircle className="modalIcn" />
@@ -170,7 +175,6 @@ function CustomDialogContent() {
 }
 
 const Projects = () => {
-    const [loading, setLoading] = useState(true);
 
     return (
         <div className='details-body'>
@@ -180,9 +184,7 @@ const Projects = () => {
                         <h1 className='title'>Projects</h1>
                         <button className=""
                             onClick={async () => {
-                                const result = await CustomDialog(
-                                    <CustomDialogContent />
-                                );
+                                const result = await CustomDialog(<CustomDialogContent />);
                             }}>
                             New Project
                         </button>

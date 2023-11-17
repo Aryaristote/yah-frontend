@@ -1672,6 +1672,9 @@ form {
   color: white;
   font-family: AvenirReg;
 }
+.modal-content .button-grp .signupbtn:focus{
+  background: #67ce64;
+}
 .modal-content .button-grp .cancel-btn {
   border-radius: 6px;
   background: #fff;
