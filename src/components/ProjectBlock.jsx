@@ -203,7 +203,7 @@ const PortofolioBlock = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/projects'); // Replace with your API endpoint
+            const response = await axios.get('http://localhost:3001/projects'); // Replace with your API endpoint
             setData(response.data);
         } catch (error) {
             setError(error);
@@ -214,7 +214,7 @@ const PortofolioBlock = () => {
 
     const handleDelete = async (id) => {
         try {
-          await axios.delete(`http://localhost:5000/projects/delete/${id}`); // Replace with your delete API endpoint
+          await axios.delete(`http://localhost:3001/projects/delete/${id}`); // Replace with your delete API endpoint
           console.log('Element deleted successfully');
           fetchData(); // Fetch data again after successful deletion
         } catch (error) {
