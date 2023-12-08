@@ -25,7 +25,7 @@ function CustomDialogContent() {
     //Modal
     const options = [
         { value: 'simple', label: 'Simple Admin' },
-        { value: 'full', label: 'Full Admin' },
+        { value: 'full', label: 'Full Admin' }, 
     ]
     
     // Function to handle the option selection
